@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.4.2.css">
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery.mobile.custom.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile.custom.structure.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.structure.min.css" />
+
+<link rel="stylesheet" href="jquery.mobile.custom.theme.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.theme.min.css" />
+<link rel="stylesheet" href="jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+   $(document).ready(function(){
+	   $aa=document.getElementById('cust_code').value;
+$bb=document.getElementById('cust_name').value;
+   var xml;
+  $('#order').click(function(){
+       $.get("http://engineerbabu.com/qt_webservice/order1.php?customer_id=" + ($("#cust_code").val()) +"&customer_name=" + ($("#cust_name").val()), null, function (data, textStatus) {
+           xml=data;
+            $(xml).find('post').each( function(){
+                var item = $(this);
+
+                if(item.find('customer_id').text()==$('#cust_code').val() && item.find('customer_name').text()==$('#cust_name').val())
+                {
+                     window.location.assign('create_order.html');
+                }
+				else
+				{
+				 alert("The Customer # You Entered Is Incorrect.");
+				}
+				
+           });
+        });
+    });
+});
+    </script>
+<style type="text/css">
+body {
+    background:url(images/back.png);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+.ui-mobile .header-manU a img {
+  width: 100%;
+ }
+ .ui-content img { algin:center;
+ margin-top:10px;}
+ .ui-btn.ui-btn-a:visited { background-color:black;}
+</style>
+<title>QT-Order</title>
+</head>
+
+<body>
+<div data-role="page">
+
+<div  data-theme="c" data-role="header"  class="header-manU ui-header-fixed slidedown">
+  <div class="manU-logo" >
+    <a href="#" >
+      <img src="images/heder.png">
+    </a>
+  </div>
+  <div id="error"></div>
+</div>
+ <div data-role="main" class="ui-content" style="margin-top:200px;">
+ <center>  <a href="#oderdialog" data-rel="popup" data-position-to="window" data-transition="flip" style="text-decoration:none; font-size:16px;">  <input type="button" value="Order"></a>
+ 
+  
+    
+    <a href="#" style="text-decoration:none;" > <input type="button" value="Order List" style=" font-size:16px;"></a>
+    <a href="#" style="text-decoration:none;"> <input type="button" value="Order Review"></a>
+   <a href="#" style="text-decoration:none;">  <input type="button" value="Help/Support"></a>
+   <a href="#" style="text-decoration:none;">  <input type="button" value="Other Info"></a></center>
+  </div>
+<div data-role="popup" id="oderdialog" class="pop_bd">
+  
+
+      <div data-role="main" class="ui-content">
+       <form method="post" action="$">
+    <div>
+      <h3>Login information</h3>
+      <label for="usrnm" class="ui-hidden-accessible">Customer ID</label>
+      <input type="text" name="cust_code" id="cust_code" placeholder="Customer #">
+      <label for="pswd" class="ui-hidden-accessible">Password:</label>
+      <input type="text" name="cust_name" id="cust_name" placeholder="Customer Name">
+    </div>
+      <a href="#" id="order"style="text-decoration:none;" > <input type="button" value="Order"></a>
+  </form>
+      
+      </div>
+
+  
+    </div>
+
+</div>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" href="jquery.mobile-1.4.2.css">
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery.mobile.custom.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile.custom.structure.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.structure.min.css" />
+ <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/v0.1.1/jquery.mobile.datepicker.css" />
+
+<link rel="stylesheet" href="jquery.mobile.custom.theme.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.theme.min.css" />
+<link rel="stylesheet" href="jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<script src="https://rawgithub.com/jquery/jquery-ui/1.10.4/ui/jquery.ui.datepicker.js"></script>
+    <script id="mobile-datepicker" src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/v0.1.1/jquery.mobile.datepicker.js"></script>
+ <script>
+function register_user() {
+	
+   
+			
+        $.ajax({
+			
+            url: "http://engineerbabu.com/qt_webservice/add_item.php",
+            type: "POST",
+            dataType: "text",
+            data: {
+               item_no : $("#info").val(),
+               item_qty : $("#qty").val(),
+                
+            },
+			
+            success: function(data) {
+			alert(data);
+                parsed_data = $.parseJSON(data);
+                if (data) {
+                    alert("User was created");
+                    window.location = parsed_data.link;
+                }
+                else {
+                    alert("Error");
+                }
+
+            }
+      
+    });
+}
+$('.minus, .plus').click(function (e) {
+    e.preventDefault();    
+    var $input = $(this).siblings('.value');
+    var val = parseInt($input.val(), 10);
+    $input.val(val + ($(this).hasClass('minus') ? -1 : 1));
+});
+ </script>
+
+<!-- Latest compiled and minified CSS -->
+
+<!-- Latest compiled and minified JavaScript -->
+<style type="text/css">
+body {
+    background:url(images/back.png);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+.header{ background-color:#127BCC;}
+.ui-btn ui-btn-inline{ background-color:#127BCC;
+color:#ffffff;}
+.ui-first-child{ background-color:#127BCC;}
+.order_no { color:#127BCC;}
+.seven:hover{ background-image:url(images/key%20bord/seven_press.png);}
+.eight:hover{ background-image:url(images/key%20bord/eight_press.png);}
+.nine:hover{ background-image:url(images/key%20bord/nine_press.png);}
+.delet:hover{ background-image:url(images/key%20bord/delet_press.png);}
+
+.four:hover{ background-image:url(images/key%20bord/four_press.png);}
+.five:hover{ background-image:url(images/key%20bord/five_press.png);}
+.six:hover{ background-image:url(images/key%20bord/six_press.png);}
+.clear:hover{ background-image:url(images/key%20bord/clear_press.png);}
+
+.one:hover{ background-image:url(images/key%20bord/one_press.png);}
+.two:hover{ background-image:url(images/key%20bord/two_press.png);}
+.three:hover{ background-image:url(images/key%20bord/three_press.png);}
+.scan:hover{ background-image:url(images/key%20bord/scan_press.png);}
+
+.plus:hover{ background-image:url(images/key%20bord/plus_press.png);}
+.zero:hover{ background-image:url(images/key%20bord/zero_press.png);}
+.minus:hover{ background-image:url(images/key%20bord/minus_press.png);}
+.enter:hover{ background-image:url(images/key%20bord/enter_pres.png);}
+</style>
+<title>QT-Order</title>
+</head>
+
+<body>
+<div data-role="page">
+
+<div data-role="header" style="background-color:#127BCC;">
+<a href="index.html" data-icon="back" data-theme="c" style="background-color:#08B1ED;" >Back</a>
+<h1 style="color:#ffffff;">Add Items</h1>
+<a href="#oderdialog" data-icon="plus" class="ui-btn ui-btn-inline"   data-rel="popup" data-position-to="window" data-transition="flip"  style="background-color:#08B1ED;"  >Add</a>
+
+
+</div>
+<div>
+ <div data-role="popup" id="oderdialog" class="pop_bd">
+  
+
+<div data-role="header" style="background-color:#127BCC;">
+<a href="create_order.html"   style="background-color:#08B1ED;" >Cancel</a>
+<h1 style="color:#ffffff;">INFO</h1>
+<a href="create_order.html"  style="background-color:#08B1ED;"  >Save</a>
+
+
+</div>
+      <div data-role="main" class="ui-content">
+      <div>
+      <table align="center">
+      <tr><td>Cust #:</td><td>1001</td></tr>
+      <tr><td>Name:</td><td>Harshuli</td></tr>
+      </table>
+      </div>
+       <form method="post" action="$">
+    <div>
+     <ul data-role="listview" data-inset="true">
+    <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Ship Date:</h2></td>
+    <td> <div >
+            <input type="text" data-role="date" >
+        </div></td></tr></table>
+       
+    </li>
+     <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Phone No:</h2></td>
+    <td> <div >
+            <input type="text" data-role="no" >
+        </div></td></tr></table>
+       
+    </li>
+   <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Comment:</h2></td>
+    <td><textarea  rows="6" data-inline="true" type="text"></textarea></td></tr></table>
+       
+    </li>
+   
+</ul>
+     
+    </div>
+  </form>
+       
+      </div>
+
+  
+    </div>
+  
+<div>
+
+</div>
+ </div>
+ <div data-role="main" class="ui-content">
+  
+ <div>
+ <center>
+	<a href="#" class="ui-btn ui-btn-inline" style="  background-color: #127BCC; color:#ffffff;  border-color: #127BCC;">Send</a>
+    <a href="review.html" class="ui-btn ui-btn-inline" style="  background-color: #127BCC; color:#ffffff; border-color: #127BCC;">Review </a>
+    <a class="ui-btn ui-btn-inline" href="#"  style="  background-color: #127BCC; color:#ffffff; border-color: #127BCC;">Delete</a>
+    
+    </center>
+	</div>
+ <div class="app">
+ 
+  <form >
+     
+  
+   <input type="text" readonly="readonly" class="form-control" id="info" name="ordernum" placeholder="Enter Item Number" style="text-align:center"/>
+   <div>
+   <input type="text" name="qty" class="form-control" id="qty" style="text-align:center; font-weight:bold" value="0">
+</form>
+
+<table id="n_keypad" align="center" >
+    <tr>
+      <td ><a  class="numero"><p style="display:none">7</p><img src="images/key bord/seven.png" class="seven"></a></td>
+	<td><a class="numero"><p style="display:none">8</p><img src="images/key bord/eight.png" class="eight"></a></td>
+	 <td><a  class="numero"><p style="display:none">9</p><img src="images/key bord/nine.png" class="nine"></a></td>
+
+	   <td><a  data-theme="e" class="del"><img src="images/key bord/delet.png" class="delet"></a></td>
+      
+    </tr>
+    <tr>
+      <td><a  class="numero"><p style="display:none">4</p><img src="images/key bord/four.png" class="four"></a></td>
+	  <td><a  class="numero"><p style="display:none">5</p><img src="images/key bord/five.png" class="five"></a></td>
+	  <td><a  class="numero"><p style="display:none">6</p><img src="images/key bord/six.png" class="six"></a></td>
+	    <td><a data-theme="e"><img src="images/key bord/clear.png" class="clear"></a></td>
+	  
+    </tr>
+    	<tr>
+	<td>
+<tr>
+	  <td><a  class="numero"><p style="display:none">1</p><img src="images/key bord/one.png" class="one"></a></td>
+	   <td><a  class="numero"><p style="display:none">2</p><img src="images/key bord/two.png" class="two"></a></td>
+	    <td><a  class="numero"><p style="display:none">3</p><img src="images/key bord/three.png" class="three"></a></td>
+	   	    <td><p><a  data-theme="e" href="#" class="topcoat-button" id="scan"><img src="images/key bord/scan.png" class="scan"></a></p>  
+                </td>
+	  
+	   </td>
+	</tr>
+	<tr>  
+	   <td><a  class="pos"><p style="display:none">-</p><img src="images/key bord/plus.png" class="plus"></a></td>
+	   <td><a class="numero"><p style="display:none">0</p><img src="images/key bord/zero.png" class="zero"></a></td>
+	   <td><a  class="neg"><p style="display:none">+</p><img src="images/key bord/minus.png" class="minus"></a></td>
+	   <td><button type="submit" style="background-color: transparent;border: none;" id="enter" onclick="register_user();" >  <img src="images/key bord/enter.png" class="enter"></button></td>
+	  </tr>
+	<tr><td><p><a href="#" class="topcoat-button" id="encode">encode</a></p></td></tr>
+	
+	   
+	</td>
+	   
+      
+	   
+    </tr>
+   
+    </table>
+	<div>
+<div>
+
+</div>
+ </div>
+ 
+
+</div>
+ <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript" src="childbrowser.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+<body>
+<script>
+
+     $(document).ready(function(){
+     
+      $('.numero').click(function(){
+        if (!isNaN($('#info').val())) {
+           if (parseInt($('#info').val()) == 0) {
+             $('#info').val($(this).text());
+           } else {
+             $('#info').val($('#info').val() + $(this).text());
+           }
+        }
+      });
+      $('.neg').click(function(){
+          if (!isNaN($('#qty').val()) && $('#qty').val().length > 0) {
+            if (parseInt($('#qty').val()) > 0) {
+              $('#qty').val(parseInt($('#qty').val()) - 1);
+            }
+          }
+      });
+      $('.pos').click(function(){
+          if (!isNaN($('#qty').val()) && $('#qty').val().length > 0) {
+            $('#qty').val(parseInt($('#qty').val()) + 1);
+          }
+      });
+      $('.del').click(function(){
+          $('#info').val($('#info').val().substring(0,$('#info').val().length - 1));
+      });
+      $('.clear').click(function(){
+          $('#info').val('');
+      });
+      $('.zero').click(function(){
+        if (!isNaN($('#info').val())) {
+          if (parseInt($('#info').val()) != 0) {
+            $('#info').val($('#info').val() + $(this).text());
+          }
+        }
+      });
+    });
+	
+	
+</script>
+
+</html>

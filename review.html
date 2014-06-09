@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.4.2.css">
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery.mobile.custom.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile.custom.structure.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.structure.min.css" />
+ <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/v0.1.1/jquery.mobile.datepicker.css" />
+  
+<link rel="stylesheet" href="jquery.mobile.custom.theme.css" />
+<link rel="stylesheet" href="jquery.mobile.custom.theme.min.css" />
+<link rel="stylesheet" href="jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+ <script src="https://rawgithub.com/jquery/jquery-ui/1.10.4/ui/jquery.ui.datepicker.js"></script>
+    <script id="mobile-datepicker" src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/v0.1.1/jquery.mobile.datepicker.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+
+<!-- Latest compiled and minified JavaScript -->
+<style type="text/css">
+body {
+    background:url(images/back.png);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+.header{ background-color:#127BCC;}
+.ui-btn ui-btn-inline{ background-color:#127BCC;
+color:#ffffff;}
+.ui-first-child{ background-color:#127BCC;}
+.order_no { color:#ffffff;}
+</style>
+<title>QT-Order</title>
+</head>
+
+<body>
+<div data-role="page">
+
+<div data-role="header" style="background-color:#127BCC;">
+<a href="create_order.html" data-icon="back" data-theme="c" style="background-color:#08B1ED;" >Back</a>
+<h1 style="color:#ffffff;">Add Items</h1>
+<a href="create_order.html" data-icon="plus" style="background-color:#08B1ED;"  >Add</a>
+
+
+</div>
+
+ <div data-role="main" class="ui-content">
+ <div>
+ <center>
+	<a href="#" class="ui-btn ui-btn-inline" style="  background-color: #127BCC; color:#ffffff;  border-color: #127BCC;">Send</a>
+    <a href="#" class="ui-btn ui-btn-inline" style="  background-color: #127BCC; color:#ffffff; border-color: #127BCC;">Delete</a>
+    <a class="ui-btn ui-btn-inline" href="#oderdialog" data-rel="popup" data-position-to="window" data-transition="flip" style="  background-color: #127BCC; color:#ffffff; border-color: #127BCC;">Info</a>
+    
+    </center>
+    <div data-role="popup" id="oderdialog" class="pop_bd">
+  
+
+<div data-role="header" style="background-color:#127BCC;">
+<a href="review.html"   style="background-color:#08B1ED;" >Cancel</a>
+<h1 style="color:#ffffff;">INFO</h1>
+<a href="review.html" style="background-color:#08B1ED;"  >Save</a>
+
+
+</div>
+      <div data-role="main" class="ui-content">
+      <div>
+      <table align="center">
+      <tr><td>Cust #:</td><td>12121</td></tr>
+      <tr><td>Name:</td><td>Harshuli</td></tr>
+      </table>
+      </div>
+       <form method="post" action="$">
+    <div>
+     <ul data-role="listview" data-inset="true">
+    <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Ship Date:</h2></td>
+    <td> <div >
+            <input type="text" data-role="date" >
+        </div></td></tr></table>
+       
+    </li>
+     <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Phone No:</h2></td>
+    <td> <div >
+            <input type="text" data-role="no" >
+        </div></td></tr></table>
+       
+    </li>
+   <li style=" margin-bottom:10px; background-color:#127BCC; color:#ffffff">
+     <table><tr><td>   
+    <h2>Comment:</h2></td>
+    <td><p><textarea  rows="6" data-inline="true" type="text"></textarea></p></td></tr></table>
+       
+    </li>
+   
+</ul>
+     
+    </div>
+  </form>
+       
+      </div>
+
+  
+    </div>
+	</div>
+ <div>
+ 
+  <form>
+     
+     <input name="search-1" id="search-1" placeholder="Search" value="" type="search">
+</form>
+<div>
+<a href="#" class="ui-btn ui-state-disabled">
+<table width="100%" class="order_no"><tr><td width="50%" >Lines:3</td>
+<td>Qty:2</td></tr></table>
+</a>
+
+</div>
+ </div>
+ <ul data-role="listview" >
+    <li ><a href="#">
+    <table>
+    <tr>
+       <td width="50%" style="color:#ffffff"> 89898</td>
+   <td > <h4 style="color:#F00;">Description not found</h4>
+   <p>1</p></td></tr></table></a>
+    </li>
+     <li><a href="#">
+    <table >
+    <tr>
+       <td width="50%"  style="color:#ffffff"> 89898</td>
+   <td > <h4 style="color:#F00;">Description not found</h4>
+   <p>1</p></td></tr></table></a>
+    </li>
+    <li><a href="#">
+    <table>
+    <tr>
+       <td width="50%" style="color:#ffffff" > 89898</td>
+   <td > <h4 style="color:#F00;">Description not found</h4>
+   <p>1</p></td></tr></table></a>
+    </li>
+</ul>
+
+</div>
+<body>
+
+</html>
